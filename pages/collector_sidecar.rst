@@ -112,7 +112,7 @@ As an example, a complete configuration could look like this::
           configuration_path: /etc/graylog/collector-sidecar/generated/nxlog.conf
 
 Use the Graylog web interface to configure remote collectors
-**************************************************************
+************************************************************
 
 Navigate to ``System → Collectors → Manage configurations``, this is the entry point for all Sidecar configurations.
 Multiple configurations can be created. Because not all connected Sidecars should fetch all configurations, it's essential to provide tags for each configuration.
@@ -126,7 +126,7 @@ The Sidecar will then pick the right parts based on the backends that are enable
 
 
 Outputs, Inputs and Snippets
-***********************
+****************************
 
 In the example above, Sidecar is instructing NXlog to create a GELF output that writes log messages back to Graylog. The two inputs are for reading in ``/var/log/syslog`` as a file input and listening on the UDP port 514 for incoming
 syslog messages. Both inputs route their messages to the GELF output.
@@ -151,3 +151,5 @@ running collectors is written to the ``log_path`` directory.
 You can also start the Sidecar in foreground and monitor the output of the process::
 
     $ graylog-collector-sidecar -c /etc/graylog/collector-sidecar/collector_sidecar.yml
+
+If you aren't seeing any messages arrive to your server, you should also check the nxlog.log file. On Windows it is under the directory C:\Program Files (x86)\nxlog\data
